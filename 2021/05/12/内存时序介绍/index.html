@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content=#58b77a>
-  <title>Test | Hexo</title>
+  <title>内存时序介绍 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Andy">
   <meta name="keywords" content="">
@@ -69,8 +69,8 @@
   <div class="overlay">
   <div class="page-title">
     <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
-    <span>2021-03-23</span>
-    <h2>Test</h2>
+    <span>2021-05-12</span>
+    <h2>内存时序介绍</h2>
     
     </div>
 </div>
@@ -80,7 +80,25 @@
   <div class="lx-post">
     <div class="lx-entry padding">
       <div>
-        
+        <h1 id="内存时序介绍"><a href="#内存时序介绍" class="headerlink" title="内存时序介绍"></a>内存时序介绍</h1><h4 id="什么是内存时序？"><a href="#什么是内存时序？" class="headerlink" title="什么是内存时序？"></a>什么是内存时序？</h4><p>内存时序（Memory timings或RAM timings）即<strong>描述同步动态随机存取存储器</strong>（SDRAM）<strong>性能的四个参数</strong>：<strong>CL、T<sub>RCD</sub>、T<sub>RP</sub> 和 T<sub>RAS</sub></strong> , 单位为时钟周期，通常被写为四个用破折号分隔开的数字，例如7-8-8-24。有时还会加入第五个参数：命令速率（Command rate），通常为2T或者1T，也写作2N、1N。</p>
+<p>这些参数指定了影响随机存取存储器速度的<strong>潜伏时间（延迟时间）</strong>。<strong>较低的数字</strong>通常意味着<strong>更快的性能</strong>。<strong>决定系统性能的最终元素是实际的延迟时间</strong>，通常以纳秒为单位。</p>
+<p>&nbsp;</p>
+<h4 id="如何决定内存性能的快慢？"><a href="#如何决定内存性能的快慢？" class="headerlink" title="如何决定内存性能的快慢？"></a>如何决定内存性能的快慢？</h4><p>当将存储器时序转换为实际的延迟时，最重要的是注意它是<strong>以时钟周期为单位</strong>。如果不知道时钟周期的时间，就不可能了解一组数字是否比另一组数字更快。</p>
+<p>&nbsp;</p>
+<p>例如：</p>
+<p>DDR3-2000存储器的频率是1000 MHz，其周期为1 ns。基于这个1 ns的时钟，CL=7给出的绝对延迟为7 ns。而更快的DDR3-2666（时钟1333 MHz，每个周期0.75 ns）则可能用更大的CL=9，但产生的绝对延迟6.75 ns更短。</p>
+<p>&nbsp;</p>
+<p><strong>定义</strong>：</p>
+<p><em>CAS潜伏时间（CL）</em>：发送一个列地址到存储器与数据开始反应之前的周期数。这是从已经打开正确行的DRAM读取第一比特存储器所需的周期数。与其他数字不同，这不是最大值，而是存储器控制器和存储器之间必须达成的确切数字。</p>
+<p><em>行地址到列地址延迟（T<sub>RCD</sub> ）</em>：打开一行存储器并访问其中的列所需的最小时钟周期数。从DRAM的非活动行读取第一位存储器的时间是T<sub>RCD</sub> + CL。</p>
+<p><em>行预充电时间（T<sub>RP</sub>）</em>：发出预充电命令与打开下一行之间所需的最小时钟周期数。从一个非正确打开行的DRAM读取存储器第一比特的时间是T<sub>RP</sub> + T<sub>RCD</sub> + CL。</p>
+<p><em>行活动时间（T<sub>RAS</sub>）</em>：行活动命令与发出预充电命令之间所需的最小时钟周期数。这是内部刷新行所需的时间，并与T<sub>RCD</sub>重叠。在SDRAM模块中，它只是T<sub>RCD</sub> + CL。否则，约等于T<sub>RCD</sub> + 2×CL。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>参考：</p>
+<p>维基百科 - 内存时序：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%86%85%E5%AD%98%E6%97%B6%E5%BA%8F">https://zh.wikipedia.org/wiki/%E5%86%85%E5%AD%98%E6%97%B6%E5%BA%8F</a></p>
+<p>知乎 - 内存时序是什么？ICMAX告诉你数字越小 内存性能就越好！：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/67635535">https://zhuanlan.zhihu.com/p/67635535</a></p>
+
       </div>
     </div>
   </div>
@@ -88,12 +106,12 @@
 <div class="lx-navigation">
 	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2021/03/23/Hexo%20blog/">
+		<a class="copy" href="#">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Next</span>
-						<h3></h3>
+						<h3>No newer post</h3>
 					</div>
 				</div>
 			</div>
@@ -101,12 +119,12 @@
 	</div>
         <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2021/03/22/hello-world/">
+		<a class="copy" href="/2021/05/12/%E7%94%A8Hexo%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Prev</span>
-						<h3>Hello W...</h3>
+						<h3>用Hexo创建...</h3>
 					</div>
 				</div>
 			</div>
@@ -147,18 +165,18 @@
   </div>
   <nav class="menu-container">
   <ul class="menu-items">
-    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
-    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
     
     <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+      <i class="fa fa-bookmark fa-fw"></i>Pages</span>
         <ul>
           <li><a href="/guestbook/">Guestbook</a></li>
         <li><a href="/about/">About</a></li>
         </ul>
     </li>
     <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-link fa-fw"></i>友链</span>
+      <i class="fa fa-link fa-fw"></i>Friends</span>
         <ul>
           <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
         </ul>
