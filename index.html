@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Andy">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.3.9',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'null'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div id="page">
+
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/cover.jpeg)">
+  <div class="overlay">
+  <div class="featured">
+    <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
+    <span>Andy</span>
+    <h1>Hexo</h1>
+    
+    
+  </div>
+  </div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post">
+
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2021/03/23/Hexo%20blog/"></a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2021-03-23</span>
+      <p><h1 id="用Hexo创建个人博客"><a href="#用Hexo创建个人博客" class="headerlink" title="用Hexo创建个人博客"></a>用Hexo创建个人博客</h1><p>因为Hexo是需要Node.js来支持生成的，所以在进行创建前需要进行一些前置准备工作</p>
+<h4 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h4><ul>
+<li>Node.js</li>
+<li>Git</li>
+</ul>
+<h4 id="前置准备操作流程"><a href="#前置准备操作流程" class="headerlink" title="前置准备操作流程"></a>前置准备操作流程</h4><ol>
+<li><p>安装Node.js</p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
+<p>安装包包含Node.js 和npm包管理器</p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210322180039794.png" alt="image-20210322180039794" style="zoom: 67%;" /></li>
+</ol>
+<ol start="2">
+<li><p>去命令提示符查看Node.js和npm版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure></li>
+</ol>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210322180317938.png" alt="image-20210322180317938" style="zoom:50%;" />
+
+<p>​        </p>
+<p>​        注：如果在国内的小伙伴，因为国内连接镜像源比较慢，所以可以先安装一个cnpm(淘宝源)来提升安装速度</p>
+<p>​        命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210322182216179.png" alt="image-20210322182216179"  />
+
+
+
+<p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm</span><br></pre></td></tr></table></figure>
+
+<p>来验证安装是否成功</p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210322183224292.png" alt="image-20210322183224292"  />
+
+
+
+<p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
+
+<p>来查看版本</p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210322183342431.png" alt="image-20210322183342431" style="zoom:80%;" />
+
+
+
+<p>至此，Node.js安装过程完毕</p>
+<h4 id="开始安装Hexo"><a href="#开始安装Hexo" class="headerlink" title="开始安装Hexo"></a>开始安装Hexo</h4><p>输入代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>来全局安装Hexo</p>
+<p><img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210322190858006.png" alt="image-20210322190858006"></p>
+<p>如果安装国内镜像源cnpm的输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>来安装Hexo</p>
+<p>安装完成后可使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<p>来验证安装</p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210322191027812.png" alt="image-20210322191027812" style="zoom: 50%;" />
+
+
+
+
+
+<h4 id="开始使用Hexo来搭建博客"><a href="#开始使用Hexo来搭建博客" class="headerlink" title="开始使用Hexo来搭建博客"></a>开始使用Hexo来搭建博客</h4><ol>
+<li>在自己想要的磁盘位置建立文件夹，文件夹名字可以随便命名</li>
+</ol>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210322191409815.png" alt="image-20210322191409815" style="zoom:50%;" />
+
+<p>​       如果在博客搭建过程中出现任何错误，只需要删除这个文件夹重新再来就好</p>
+<ol start="2">
+<li><p>在命令提示符里进入刚刚建立的博客文件夹内</p>
+ <img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210322191744418.png" alt="image-20210322191744418" style="zoom:67%;" /></li>
+</ol>
+<ol start="3">
+<li><p>使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p>来初始化博客</p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210322195012779.png" alt="image-20210322195012779" style="zoom: 50%;" /></li>
+</ol>
+<p>​        初始化完成后刚刚创建的MyBlog文件夹下会出现hexo的相关文件</p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210322195203454.png" alt="image-20210322195203454" style="zoom:67%;" />
+
+
+
+
+
+<p>​        至此，hexo博客搭建已经完成</p>
+<h4 id="运行博客"><a href="#运行博客" class="headerlink" title="运行博客"></a>运行博客</h4><p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>来启动博客</p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210323004824052.png" alt="image-20210323004824052" style="zoom: 50%;" />
+
+
+
+<p>打开浏览器输入 <a href="">localhost:4000</a> 即可打开我们创建好的hexo博客首页</p>
+<p><img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210323014705062.png" alt="image-20210323014705062"></p>
+<h4 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h4><p>可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章名称&quot;</span><br></pre></td></tr></table></figure>
+
+<p>来生成Markdown文件并编辑它</p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/image-20210323022407276.png" alt="image-20210323022407276" style="zoom:50%;" />
+
+<p>也可以通过其他IDE来生成Markdown文件并编辑，编辑完成之后保存后缀为.md的Markdown格式文件，放入hexo博客生成文件夹目录下的source –&gt; _posts</p>
+<p>之后运行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>先清理一下</p>
+<p>再输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>来生成静态页面</p>
+<p>最后输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>即可浏览刚刚编辑的博文了</p>
+</p>
+      <div class="post-button"><a class="btn" href="/2021/03/23/Hexo%20blog/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>阅读更多</a></div>
+    </div>
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2021/03/23/Test/">Test</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2021-03-23</span>
+      <p></p>
+      <div class="post-button"><a class="btn" href="/2021/03/23/Test/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>阅读更多</a></div>
+    </div>
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2021/03/22/hello-world/">Hello World</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2021-03-22</span>
+      <p><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+</p>
+      <div class="post-button"><a class="btn" href="/2021/03/22/hello-world/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>阅读更多</a></div>
+    </div>
+  </div>
+
+
+
+
+<footer>
+  <div>
+  Copyright &copy; 2021.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+  </div>
+</div>
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/avatar.jpeg" alt="Andy"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>Andy</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
+</body>
+</html>
