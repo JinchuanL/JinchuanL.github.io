@@ -84,9 +84,63 @@
 
   <div class="lx-entry padding">
     <div>
+      <h2 class="title"><a href="/2021/05/18/Python%E5%BA%94%E7%94%A8/">Python应用</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2021-05-18</span>
+      <p><h1 id="Python应用"><a href="#Python应用" class="headerlink" title="Python应用"></a>Python应用</h1><p>&nbsp;</p>
+<h2 id="Application-应用程序"><a href="#Application-应用程序" class="headerlink" title="Application - 应用程序"></a><strong>Application - 应用程序</strong></h2><h3 id="图像识别"><a href="#图像识别" class="headerlink" title="图像识别"></a><strong>图像识别</strong></h3><p>首先需要在百度云 - 管理中心创建应用 <a target="_blank" rel="noopener" href="https://console.bce.baidu.com/ai/#/ai/ocr/overview/index">https://console.bce.baidu.com/ai/#/ai/ocr/overview/index</a></p>
+<p>(如果没有百度账号需要先创建百度账号并绑定手机和邮箱才可以使用)</p>
+<p>&nbsp;</p>
+<p>选择<strong>创建应用</strong></p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/a.png" alt="a" style="zoom:50%;" />
+
+<p>&nbsp;</p>
+<p>填写<strong>应用名称</strong>，<strong>归属</strong>和<strong>应用描述</strong>，点击立即创建</p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/b.png" alt="b" style="zoom:50%;" />
+
+<p>&nbsp;</p>
+<p>从应用列表里查看刚刚创建好的文字识别应用并获取<strong>AppID，API Key 和 Secret Key</strong></p>
+<p><img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/c.png" alt="c"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><em>安装aip的安装包：</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install baidu-aip</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
+<p>完整代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> aip <span class="keyword">import</span> AipOcr</span><br><span class="line"></span><br><span class="line">image = requests.get(<span class="string">&#x27;图片地址&#x27;</span>).content</span><br><span class="line"></span><br><span class="line">APP_ID = <span class="string">&#x27;自己创建应用后生成的APP_ID&#x27;</span></span><br><span class="line">API_KEY = <span class="string">&#x27;自己创建应用后生成的API_KEY&#x27;</span></span><br><span class="line">SECRET_KEY = <span class="string">&#x27;自己创建应用后生成的SECRET_KEY&#x27;</span></span><br><span class="line"></span><br><span class="line">client = AipOcr(APP_ID, API_KEY, SECRET_KEY)</span><br><span class="line"></span><br><span class="line"><span class="comment">#client.basicGeneral(img) 会返回一个字典，包含了唯一标识log_id, words_result_num 就是这个words_result 的数量</span></span><br><span class="line">res = client.basicGeneral(image)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="string">&#x27;words_result&#x27;</span> <span class="keyword">in</span> res.keys():</span><br><span class="line">    <span class="comment">#提取words_results这个列表并逐一遍历，去取每个字符串，这样就完成了图片上文字的提取</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> res[<span class="string">&#x27;words_result&#x27;</span>]:</span><br><span class="line">        <span class="built_in">print</span>(item[<span class="string">&#x27;words&#x27;</span>])</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>参考资料：</strong></p>
+<p>aip官方文档：<a target="_blank" rel="noopener" href="https://cloud.baidu.com/doc/OCR/index.html">https://cloud.baidu.com/doc/OCR/index.html</a></p>
+<p>图片文字识别aip的一个小Demo：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/jiyanjiao-702521/p/9984242.html">https://www.cnblogs.com/jiyanjiao-702521/p/9984242.html</a></p>
+<p>Python调用百度aip进行文字识别：<a target="_blank" rel="noopener" href="https://blog.csdn.net/lx1315998513/article/details/90084307">https://blog.csdn.net/lx1315998513/article/details/90084307</a></p>
+</p>
+      <div class="post-button"><a class="btn" href="/2021/05/18/Python%E5%BA%94%E7%94%A8/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
+    </div>
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2021/05/18/Python%E5%9F%BA%E7%A1%80/">Python基础</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2021-05-18</span>
+      <p><h1 id="Python基础"><a href="#Python基础" class="headerlink" title="Python基础"></a>Python基础</h1><p>&nbsp;</p>
+<h2 id="Function-功能"><a href="#Function-功能" class="headerlink" title="Function - 功能"></a><strong>Function - 功能</strong></h2><h3 id="Sleep-function-睡眠功能"><a href="#Sleep-function-睡眠功能" class="headerlink" title="Sleep function - 睡眠功能"></a><strong>Sleep function</strong> - 睡眠功能</h3><p>It <strong>suspends (waits)</strong> execution of the current thread for a given number of <strong>seconds</strong>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">time.sleep(<span class="number">3.1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>参考资料：</strong></p>
+<p>Python Sleep()：<a target="_blank" rel="noopener" href="https://www.programiz.com/python-programming/time/sleep">https://www.programiz.com/python-programming/time/sleep</a></p>
+</p>
+      <div class="post-button"><a class="btn" href="/2021/05/18/Python%E5%9F%BA%E7%A1%80/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
+    </div>
+  </div>
+  <div class="lx-entry padding">
+    <div>
       <h2 class="title"><a href="/2021/05/13/GitHub-Tips(Continuously%20updated)/">GitHub Tips(Continuously updated)</a></h2>
       <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2021-05-13</span>
-      <p><h3 id="How-to-create-an-empty-folder-in-GitHub-repository"><a href="#How-to-create-an-empty-folder-in-GitHub-repository" class="headerlink" title="How to create an empty folder in GitHub repository?"></a>How to create an <strong>empty folder</strong> in GitHub repository?</h3><ol>
+      <p><h1 id="GitHub-Tips-Continuously-updated"><a href="#GitHub-Tips-Continuously-updated" class="headerlink" title="GitHub Tips (Continuously updated)"></a>GitHub Tips (Continuously updated)</h1><p>&nbsp;</p>
+<h2 id="How-to-create-an-empty-folder-in-GitHub-repository"><a href="#How-to-create-an-empty-folder-in-GitHub-repository" class="headerlink" title="How to create an empty folder in GitHub repository?"></a>How to create an <strong>empty folder</strong> in GitHub repository?</h2><ol>
 <li><p>Go to the folder inside the folder that you want to create in</p>
 </li>
 <li><p>Click on <em>New file</em></p>
@@ -104,7 +158,7 @@
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<h3 id="How-to-create-a-pull-request-in-GitHub"><a href="#How-to-create-a-pull-request-in-GitHub" class="headerlink" title="How to create a pull request in GitHub?"></a>How to <strong>create a pull request</strong> in GitHub?</h3><ol>
+<h2 id="How-to-create-a-pull-request-in-GitHub"><a href="#How-to-create-a-pull-request-in-GitHub" class="headerlink" title="How to create a pull request in GitHub?"></a>How to <strong>create a pull request</strong> in GitHub?</h2><ol>
 <li><p>Find a project that you want to contribute to</p>
 </li>
 <li><p>Click <em>Fork</em></p>
@@ -134,10 +188,11 @@
     <div>
       <h2 class="title"><a href="/2021/05/12/%E5%86%85%E5%AD%98%E6%97%B6%E5%BA%8F%E4%BB%8B%E7%BB%8D/">内存时序介绍</a></h2>
       <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2021-05-12</span>
-      <p><h1 id="内存时序介绍"><a href="#内存时序介绍" class="headerlink" title="内存时序介绍"></a>内存时序介绍</h1><h4 id="什么是内存时序？"><a href="#什么是内存时序？" class="headerlink" title="什么是内存时序？"></a>什么是内存时序？</h4><p>内存时序（Memory timings或RAM timings）即<strong>描述同步动态随机存取存储器</strong>（SDRAM）<strong>性能的四个参数</strong>：<strong>CL、T<sub>RCD</sub>、T<sub>RP</sub> 和 T<sub>RAS</sub></strong> , 单位为时钟周期，通常被写为四个用破折号分隔开的数字，例如7-8-8-24。有时还会加入第五个参数：命令速率（Command rate），通常为2T或者1T，也写作2N、1N。</p>
+      <p><h1 id="内存时序介绍"><a href="#内存时序介绍" class="headerlink" title="内存时序介绍"></a>内存时序介绍</h1><p>&nbsp;</p>
+<h2 id="什么是内存时序？"><a href="#什么是内存时序？" class="headerlink" title="什么是内存时序？"></a>什么是内存时序？</h2><p>内存时序（Memory timings或RAM timings）即<strong>描述同步动态随机存取存储器</strong>（SDRAM）<strong>性能的四个参数</strong>：<strong>CL、T<sub>RCD</sub>、T<sub>RP</sub> 和 T<sub>RAS</sub></strong> , 单位为时钟周期，通常被写为四个用破折号分隔开的数字，例如7-8-8-24。有时还会加入第五个参数：命令速率（Command rate），通常为2T或者1T，也写作2N、1N。</p>
 <p>这些参数指定了影响随机存取存储器速度的<strong>潜伏时间（延迟时间）</strong>。<strong>较低的数字</strong>通常意味着<strong>更快的性能</strong>。<strong>决定系统性能的最终元素是实际的延迟时间</strong>，通常以纳秒为单位。</p>
 <p>&nbsp;</p>
-<h4 id="如何决定内存性能的快慢？"><a href="#如何决定内存性能的快慢？" class="headerlink" title="如何决定内存性能的快慢？"></a>如何决定内存性能的快慢？</h4><p>当将存储器时序转换为实际的延迟时，最重要的是注意它是<strong>以时钟周期为单位</strong>。如果不知道时钟周期的时间，就不可能了解一组数字是否比另一组数字更快。</p>
+<h2 id="如何决定内存性能的快慢？"><a href="#如何决定内存性能的快慢？" class="headerlink" title="如何决定内存性能的快慢？"></a>如何决定内存性能的快慢？</h2><p>当将存储器时序转换为实际的延迟时，最重要的是注意它是<strong>以时钟周期为单位</strong>。如果不知道时钟周期的时间，就不可能了解一组数字是否比另一组数字更快。</p>
 <p>&nbsp;</p>
 <p>例如：</p>
 <p>DDR3-2000存储器的频率是1000 MHz，其周期为1 ns。基于这个1 ns的时钟，CL=7给出的绝对延迟为7 ns。而更快的DDR3-2666（时钟1333 MHz，每个周期0.75 ns）则可能用更大的CL=9，但产生的绝对延迟6.75 ns更短。</p>

@@ -83,10 +83,11 @@
   <div class="lx-post">
     <div class="lx-entry padding">
       <div>
-        <h1 id="内存时序介绍"><a href="#内存时序介绍" class="headerlink" title="内存时序介绍"></a>内存时序介绍</h1><h4 id="什么是内存时序？"><a href="#什么是内存时序？" class="headerlink" title="什么是内存时序？"></a>什么是内存时序？</h4><p>内存时序（Memory timings或RAM timings）即<strong>描述同步动态随机存取存储器</strong>（SDRAM）<strong>性能的四个参数</strong>：<strong>CL、T<sub>RCD</sub>、T<sub>RP</sub> 和 T<sub>RAS</sub></strong> , 单位为时钟周期，通常被写为四个用破折号分隔开的数字，例如7-8-8-24。有时还会加入第五个参数：命令速率（Command rate），通常为2T或者1T，也写作2N、1N。</p>
+        <h1 id="内存时序介绍"><a href="#内存时序介绍" class="headerlink" title="内存时序介绍"></a>内存时序介绍</h1><p>&nbsp;</p>
+<h2 id="什么是内存时序？"><a href="#什么是内存时序？" class="headerlink" title="什么是内存时序？"></a>什么是内存时序？</h2><p>内存时序（Memory timings或RAM timings）即<strong>描述同步动态随机存取存储器</strong>（SDRAM）<strong>性能的四个参数</strong>：<strong>CL、T<sub>RCD</sub>、T<sub>RP</sub> 和 T<sub>RAS</sub></strong> , 单位为时钟周期，通常被写为四个用破折号分隔开的数字，例如7-8-8-24。有时还会加入第五个参数：命令速率（Command rate），通常为2T或者1T，也写作2N、1N。</p>
 <p>这些参数指定了影响随机存取存储器速度的<strong>潜伏时间（延迟时间）</strong>。<strong>较低的数字</strong>通常意味着<strong>更快的性能</strong>。<strong>决定系统性能的最终元素是实际的延迟时间</strong>，通常以纳秒为单位。</p>
 <p>&nbsp;</p>
-<h4 id="如何决定内存性能的快慢？"><a href="#如何决定内存性能的快慢？" class="headerlink" title="如何决定内存性能的快慢？"></a>如何决定内存性能的快慢？</h4><p>当将存储器时序转换为实际的延迟时，最重要的是注意它是<strong>以时钟周期为单位</strong>。如果不知道时钟周期的时间，就不可能了解一组数字是否比另一组数字更快。</p>
+<h2 id="如何决定内存性能的快慢？"><a href="#如何决定内存性能的快慢？" class="headerlink" title="如何决定内存性能的快慢？"></a>如何决定内存性能的快慢？</h2><p>当将存储器时序转换为实际的延迟时，最重要的是注意它是<strong>以时钟周期为单位</strong>。如果不知道时钟周期的时间，就不可能了解一组数字是否比另一组数字更快。</p>
 <p>&nbsp;</p>
 <p>例如：</p>
 <p>DDR3-2000存储器的频率是1000 MHz，其周期为1 ns。基于这个1 ns的时钟，CL=7给出的绝对延迟为7 ns。而更快的DDR3-2666（时钟1333 MHz，每个周期0.75 ns）则可能用更大的CL=9，但产生的绝对延迟6.75 ns更短。</p>

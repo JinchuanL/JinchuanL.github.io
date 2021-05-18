@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content=#58b77a>
-  <title>GitHub Tips(Continuously updated) | Andy&#39;s Blog</title>
+  <title>Python应用 | Andy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="">
   <meta name="keywords" content="">
@@ -69,8 +69,8 @@
   <div class="overlay">
   <div class="page-title">
     <div class="avatar"><a href="/"><img src="/images/avator.jpg"></a></div>
-    <span>2021-05-13</span>
-    <h2>GitHub Tips(...</h2>
+    <span>2021-05-18</span>
+    <h2>Python应用</h2>
     
     <div class="social-links">
     <a href="https://github.com/JinchuanL" target="_blank"><i class="fa fa-github fa-fw"></i></a>
@@ -83,47 +83,35 @@
   <div class="lx-post">
     <div class="lx-entry padding">
       <div>
-        <h1 id="GitHub-Tips-Continuously-updated"><a href="#GitHub-Tips-Continuously-updated" class="headerlink" title="GitHub Tips (Continuously updated)"></a>GitHub Tips (Continuously updated)</h1><p>&nbsp;</p>
-<h2 id="How-to-create-an-empty-folder-in-GitHub-repository"><a href="#How-to-create-an-empty-folder-in-GitHub-repository" class="headerlink" title="How to create an empty folder in GitHub repository?"></a>How to create an <strong>empty folder</strong> in GitHub repository?</h2><ol>
-<li><p>Go to the folder inside the folder that you want to create in</p>
-</li>
-<li><p>Click on <em>New file</em></p>
-<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/1.png" alt="1" style="zoom: 50%;" /></li>
-<li><p>On the text field for the file name, write the folder name you want to use</p>
-<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/2.png" alt="2" style="zoom: 50%;" /></li>
-<li><p><strong>Then type /</strong>. This creates a folder</p>
-<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/3.png" alt="3" style="zoom:50%;" /></li>
-<li><p>If you want to create a new file in that folder, give the new file a name</p>
-<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/4.png" alt="4" style="zoom:50%;" /></li>
-<li><p>Click <em>Commit new file</em></p>
-</li>
-</ol>
-<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/QQ%E5%9B%BE%E7%89%8720210514002308.jpg" alt="QQ图片20210514002308" style="zoom: 50%;" />
+        <h1 id="Python应用"><a href="#Python应用" class="headerlink" title="Python应用"></a>Python应用</h1><p>&nbsp;</p>
+<h2 id="Application-应用程序"><a href="#Application-应用程序" class="headerlink" title="Application - 应用程序"></a><strong>Application - 应用程序</strong></h2><h3 id="图像识别"><a href="#图像识别" class="headerlink" title="图像识别"></a><strong>图像识别</strong></h3><p>首先需要在百度云 - 管理中心创建应用 <a target="_blank" rel="noopener" href="https://console.bce.baidu.com/ai/#/ai/ocr/overview/index">https://console.bce.baidu.com/ai/#/ai/ocr/overview/index</a></p>
+<p>(如果没有百度账号需要先创建百度账号并绑定手机和邮箱才可以使用)</p>
+<p>&nbsp;</p>
+<p>选择<strong>创建应用</strong></p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/a.png" alt="a" style="zoom:50%;" />
+
+<p>&nbsp;</p>
+<p>填写<strong>应用名称</strong>，<strong>归属</strong>和<strong>应用描述</strong>，点击立即创建</p>
+<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/b.png" alt="b" style="zoom:50%;" />
+
+<p>&nbsp;</p>
+<p>从应用列表里查看刚刚创建好的文字识别应用并获取<strong>AppID，API Key 和 Secret Key</strong></p>
+<p><img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/c.png" alt="c"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><em>安装aip的安装包：</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install baidu-aip</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
+<p>完整代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> aip <span class="keyword">import</span> AipOcr</span><br><span class="line"></span><br><span class="line">image = requests.get(<span class="string">&#x27;图片地址&#x27;</span>).content</span><br><span class="line"></span><br><span class="line">APP_ID = <span class="string">&#x27;自己创建应用后生成的APP_ID&#x27;</span></span><br><span class="line">API_KEY = <span class="string">&#x27;自己创建应用后生成的API_KEY&#x27;</span></span><br><span class="line">SECRET_KEY = <span class="string">&#x27;自己创建应用后生成的SECRET_KEY&#x27;</span></span><br><span class="line"></span><br><span class="line">client = AipOcr(APP_ID, API_KEY, SECRET_KEY)</span><br><span class="line"></span><br><span class="line"><span class="comment">#client.basicGeneral(img) 会返回一个字典，包含了唯一标识log_id, words_result_num 就是这个words_result 的数量</span></span><br><span class="line">res = client.basicGeneral(image)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="string">&#x27;words_result&#x27;</span> <span class="keyword">in</span> res.keys():</span><br><span class="line">    <span class="comment">#提取words_results这个列表并逐一遍历，去取每个字符串，这样就完成了图片上文字的提取</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> res[<span class="string">&#x27;words_result&#x27;</span>]:</span><br><span class="line">        <span class="built_in">print</span>(item[<span class="string">&#x27;words&#x27;</span>])</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<h2 id="How-to-create-a-pull-request-in-GitHub"><a href="#How-to-create-a-pull-request-in-GitHub" class="headerlink" title="How to create a pull request in GitHub?"></a>How to <strong>create a pull request</strong> in GitHub?</h2><ol>
-<li><p>Find a project that you want to contribute to</p>
-</li>
-<li><p>Click <em>Fork</em></p>
-<img src="https://raw.githubusercontent.com/JinchuanL/PicGoStorage/master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-05-13%20231324.png" alt="屏幕截图 2021-05-13 231324" style="zoom: 67%;" /></li>
-<li><p>Clone to your local system</p>
-</li>
-<li><p>Create a new branch</p>
-</li>
-<li><p>Make changes that you want</p>
-</li>
-<li><p>Push it back to your repo</p>
-</li>
-<li><p>Click the compare &amp; pull request button</p>
-</li>
-<li><p>Click Create pull request to open a new pull request</p>
-</li>
-</ol>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><strong>Reference:</strong></p>
-<p>How to create a pull request in GitHub: <a target="_blank" rel="noopener" href="https://opensource.com/article/19/7/create-pull-request-github">https://opensource.com/article/19/7/create-pull-request-github</a></p>
+<p><strong>参考资料：</strong></p>
+<p>aip官方文档：<a target="_blank" rel="noopener" href="https://cloud.baidu.com/doc/OCR/index.html">https://cloud.baidu.com/doc/OCR/index.html</a></p>
+<p>图片文字识别aip的一个小Demo：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/jiyanjiao-702521/p/9984242.html">https://www.cnblogs.com/jiyanjiao-702521/p/9984242.html</a></p>
+<p>Python调用百度aip进行文字识别：<a target="_blank" rel="noopener" href="https://blog.csdn.net/lx1315998513/article/details/90084307">https://blog.csdn.net/lx1315998513/article/details/90084307</a></p>
 
       </div>
     </div>
@@ -132,12 +120,12 @@
 <div class="lx-navigation">
 	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2021/05/18/Python%E5%9F%BA%E7%A1%80/">
+		<a class="copy" href="#">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Next</span>
-						<h3>Python基础</h3>
+						<h3>No newer post</h3>
 					</div>
 				</div>
 			</div>
@@ -145,12 +133,12 @@
 	</div>
         <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2021/05/12/%E5%86%85%E5%AD%98%E6%97%B6%E5%BA%8F%E4%BB%8B%E7%BB%8D/">
+		<a class="copy" href="/2021/05/18/Python%E5%9F%BA%E7%A1%80/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Prev</span>
-						<h3>内存时序介绍</h3>
+						<h3>Python基础</h3>
 					</div>
 				</div>
 			</div>
