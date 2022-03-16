@@ -84,6 +84,67 @@
 
   <div class="lx-entry padding">
     <div>
+      <h2 class="title"><a href="/2022/03/16/HackerRank-Java/">HackerRank Java</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2022-03-16</span>
+      <p><h1 id="HackerRank-Java"><a href="#HackerRank-Java" class="headerlink" title="HackerRank Java"></a>HackerRank Java</h1><ol>
+<li><h4 id="Print-“Hello-World”"><a href="#Print-“Hello-World”" class="headerlink" title="Print “Hello World”"></a><strong>Print “Hello World”</strong></h4></li>
+</ol>
+<p>​        Question:</p>
+<p>​            You must print two lines of output:</p>
+<p>​            Print Hello, World. on the first line.<br>​            Print Hello, Java. on the second line.</p>
+<p>​            Sample Output:</p>
+<p>​            Hello, World.<br>​            Hello, Java.</p>
+<p>&nbsp;</p>
+<p>​        Just simple Ctrl + C from the question part &amp; Ctrl + V to the code block. Done.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">/* Enter your code here. Print output to STDOUT. Your class should be named Solution. */</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, World.&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, Java.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
+<p>3 types of print statements:</p>
+<ul>
+<li>System.out.print(argument) –&gt; just print out the argument.</li>
+<li>System.out.println(argument) –&gt; print out the argument and ends the line.</li>
+<li>System.out.printf(format, argument) –&gt; print out the argument by given format.</li>
+</ul>
+<p>&nbsp;</p>
+<p>A print statement is a call to the print / println method of the System.out object.</p>
+<p>The print method takes <strong>exactly one</strong> argument;</p>
+<p>The println method takes <strong>one or no</strong> arguments.</p>
+<p>&nbsp;</p>
+<p>The arguments maybe a String which you create using the string concatenation “+” or an object, the print and println methods call that object’s toString() method to get a printable string.</p>
+<p>&nbsp;</p>
+<p>Reference: <a target="_blank" rel="noopener" href="https://www.hackerrank.com/challenges/welcome-to-java/editorial">https://www.hackerrank.com/challenges/welcome-to-java/editorial</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ol start="2">
+<li><h4 id="Stdin-and-Stdout-I"><a href="#Stdin-and-Stdout-I" class="headerlink" title="Stdin and Stdout I"></a><strong>Stdin and Stdout I</strong></h4></li>
+</ol>
+<p>​        Two ways –&gt; <strong>Scanner</strong> class OR <strong>BufferedReader</strong> class</p>
+<p>​        <strong>Scanner</strong>: specifying Input Stream as System.in.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// create a Scanner Object named scan</span></span><br><span class="line">Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line"><span class="comment">// use Scanner scan to read a String and an int </span></span><br><span class="line">String myString = scan.next();</span><br><span class="line"><span class="keyword">int</span> myInt = scan.nextInt();</span><br><span class="line"></span><br><span class="line"><span class="comment">// close Scanner Object because no more input to read</span></span><br><span class="line">scan.close();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;myString is: &quot;</span> + myString);</span><br><span class="line">System.out.println(<span class="string">&quot;myInt is: &quot;</span> + myInt);</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
+<p>​        <strong>BufferedReader</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">FileReader fr = <span class="keyword">new</span> FileReader(<span class="string">&quot;File.txt&quot;</span>);</span><br><span class="line"><span class="comment">// or use InputStreamReader</span></span><br><span class="line"><span class="comment">// InputStreamReader insreader =new InputStreamReader(System.in); </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// create a BufferedReader Object</span></span><br><span class="line">BufferedReader bfreader = <span class="keyword">new</span> BufferedReader(fr);</span><br><span class="line"></span><br><span class="line">String name=<span class="string">&quot;&quot;</span>;    </span><br><span class="line"><span class="keyword">while</span>(!name.equals(<span class="string">&quot;stop&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Enter data: &quot;</span>);    </span><br><span class="line">    name = bfreader.readLine();    </span><br><span class="line">    System.out.println(<span class="string">&quot;data is: &quot;</span>+ name);    </span><br><span class="line">&#125;              </span><br><span class="line"></span><br><span class="line">bfreader.close();    </span><br><span class="line">fr.close();   </span><br><span class="line"></span><br><span class="line">bfreader.close();</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
+<p>​        Question:</p>
+<p>​            Read  integers from stdin and then print them to stdout. Each integer must be printed on a new line.</p>
+<p>​            Sample Input</p>
+<p>​            42</p>
+<p>​            100</p>
+<p>​            125</p>
+<p>​            Sample Output</p>
+<p>​            42</p>
+<p>​            100</p>
+<p>​            125</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> a = scan.nextInt();</span><br><span class="line">        <span class="keyword">int</span> b = scan.nextInt();</span><br><span class="line">        <span class="keyword">int</span> c = scan.nextInt();</span><br><span class="line">        <span class="comment">// Complete this line</span></span><br><span class="line">        <span class="comment">// Complete this line</span></span><br><span class="line"></span><br><span class="line">        System.out.println(a);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">        System.out.println(c);</span><br><span class="line">        <span class="comment">// Complete this line</span></span><br><span class="line">        <span class="comment">// Complete this line</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">// BETTER IDEA</span></span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span>(sc.hasNextInt())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> a = sc.nextInt();</span><br><span class="line">            System.out.println(a);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// IDEA 2</span></span><br><span class="line">        <span class="comment">/* </span></span><br><span class="line"><span class="comment">        a Try with Resource to automatically close any classes that </span></span><br><span class="line"><span class="comment">        implements AutoClosable interface (Scanner class in this case). </span></span><br><span class="line"><span class="comment">        That way you don&#x27;t have to do scanner.close() </span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="keyword">try</span>(Scanner scan = <span class="keyword">new</span> Scanner(System.in)) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span> (scan.hasNext())</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(scan.nextInt());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</p>
+      <div class="post-button"><a class="btn" href="/2022/03/16/HackerRank-Java/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
+    </div>
+  </div>
+  <div class="lx-entry padding">
+    <div>
       <h2 class="title"><a href="/2022/02/22/Java-Multi-Thread/">Java Multi-Thread</a></h2>
       <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2022-02-22</span>
       <p><h1 id="Java-Multi-Thread-Java多线程"><a href="#Java-Multi-Thread-Java多线程" class="headerlink" title="Java Multi - Thread (Java多线程)"></a>Java Multi - Thread (Java多线程)</h1><p>Multi - threading is the ability to <strong>execute multiple different</strong> paths of <strong>code</strong> <strong>at the same time</strong>. Java program normally only use one thread.</p>
